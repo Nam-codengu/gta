@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nâng cấp vật phẩm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mainMenu">
+        <h2>HỆ THỐNG NÂNG CẤP</h2>
+        <button onclick="openTransfer()">Di truyền cấp</button>
+        <button onclick="openRecycle()">Tái chế</button>
+        <button onclick="openRanking()">Bảng xếp hạng</button>
+    </div>
+    <div id="rankingMenu" style="display:none">
+        <h3>Bảng xếp hạng đập đồ</h3>
+        <div id="rankings"></div>
+        <button onclick="closeRanking()">Đóng</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
