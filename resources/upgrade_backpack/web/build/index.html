@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống nâng cấp balo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="hidden">
+        <div class="container">
+            <div class="header">
+                <h1>HỆ THỐNG NÂNG CẤP BALO</h1>
+                <button class="close-btn" onclick="closeNUI()">✕</button>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="upgrade">Đập đồ</button>
+                <button class="tab-btn" data-tab="transfer">Di truyền cấp</button>
+                <button class="tab-btn" data-tab="recycle">Tái chế</button>
+                <button class="tab-btn" data-tab="ranking">BXH</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-content">
+                <!-- Upgrade Tab -->
+                <div id="upgrade-tab" class="tab-panel active">
+                    <h3>Nâng cấp vật phẩm</h3>
+                    <div class="inventory-grid" id="upgrade-inventory">
+                        <!-- Items will be populated here -->
+                    </div>
+                    <div class="upgrade-info" id="upgrade-info">
+                        <p>Chọn vật phẩm để xem thông tin nâng cấp</p>
+                    </div>
+                    <button class="action-btn" id="upgrade-btn" onclick="upgradeItem()" disabled>
+                        Nâng cấp
+                    </button>
+                </div>
+                
+                <!-- Transfer Tab -->
+                <div id="transfer-tab" class="tab-panel">
+                    <h3>Di truyền cấp độ</h3>
+                    <div class="transfer-container">
+                        <div class="transfer-section">
+                            <h4>Vật phẩm nguồn (cấp cao)</h4>
+                            <div class="inventory-grid" id="transfer-source">
+                                <!-- Source items -->
+                            </div>
+                        </div>
+                        <div class="transfer-arrow">➜</div>
+                        <div class="transfer-section">
+                            <h4>Vật phẩm đích (cấp thấp)</h4>
+                            <div class="inventory-grid" id="transfer-dest">
+                                <!-- Destination items -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transfer-info" id="transfer-info">
+                        <p>Chọn vật phẩm nguồn và đích để di truyền cấp độ</p>
+                    </div>
+                    <button class="action-btn" id="transfer-btn" onclick="transferLevel()" disabled>
+                        Di truyền cấp
+                    </button>
+                </div>
+                
+                <!-- Recycle Tab -->
+                <div id="recycle-tab" class="tab-panel">
+                    <h3>Tái chế vật phẩm</h3>
+                    <div class="inventory-grid" id="recycle-inventory">
+                        <!-- Recyclable items -->
+                    </div>
+                    <div class="recycle-info" id="recycle-info">
+                        <p>Chọn vật phẩm cấp cao để tái chế và nhận lại nguyên liệu</p>
+                    </div>
+                    <button class="action-btn" id="recycle-btn" onclick="recycleItem()" disabled>
+                        Tái chế
+                    </button>
+                </div>
+                
+                <!-- Ranking Tab -->
+                <div id="ranking-tab" class="tab-panel">
+                    <h3>Bảng xếp hạng</h3>
+                    <div class="ranking-container">
+                        <div class="ranking-section">
+                            <h4>🏆 Top cấp cao nhất</h4>
+                            <div class="ranking-list" id="top-ranking">
+                                <!-- Top players -->
+                            </div>
+                        </div>
+                        
+                        <div class="ranking-section">
+                            <h4>🍀 Danh hiệu đặc biệt</h4>
+                            <div class="special-titles" id="special-titles">
+                                <!-- Special titles -->
+                            </div>
+                        </div>
+                    </div>
+                    <button class="action-btn" onclick="refreshRanking()">
+                        Làm mới BXH
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading overlay -->
+    <div id="loading" class="loading hidden">
+        <div class="loading-spinner"></div>
+        <p>Đang xử lý...</p>
+    </div>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notification-text"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
