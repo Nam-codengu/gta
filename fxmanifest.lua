@@ -17,5 +17,6 @@ files {
     'nui/index.html',
     'nui/style.css',
     'nui/script.js',
+    'nui/icons/*.png',
     'nui/sfx/*.mp3'
 }
