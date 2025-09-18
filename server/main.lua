@@ -29,7 +29,7 @@ end
 RegisterNetEvent('backpack:upgrade', function(slot)
     local src = source
     local player = ox_inventory:GetPlayer(src)
-    local inv = player?.inventory
+    local inv = player and player.inventory
     
     if not inv then 
         TriggerClientEvent('ox_lib:notify', src, {description = 'Lỗi inventory!', type = 'error'})
@@ -111,7 +111,7 @@ end)
 RegisterNetEvent('backpack:transfer', function(sourceSlot, targetSlot)
     local src = source
     local player = ox_inventory:GetPlayer(src)
-    local inv = player?.inventory
+    local inv = player and player.inventory
     
     if not inv then return end
     
@@ -171,7 +171,7 @@ end)
 RegisterNetEvent('backpack:recycle', function(slot)
     local src = source
     local player = ox_inventory:GetPlayer(src)
-    local inv = player?.inventory
+    local inv = player and player.inventory
     
     if not inv then return end
     
@@ -274,7 +274,7 @@ end)
 RegisterNetEvent('upgrade:transfer', function(srcSlot, dstSlot)
     local src = source
     local player = ox_inventory:GetPlayer(src)
-    local inv = player?.inventory
+    local inv = player and player.inventory
     if not inv then return end
     local itemSrc = inv[srcSlot]
     local itemDst = inv[dstSlot]
@@ -299,7 +299,7 @@ end)
 RegisterNetEvent('upgrade:recycle', function(slot)
     local src = source
     local player = ox_inventory:GetPlayer(src)
-    local inv = player?.inventory
+    local inv = player and player.inventory
     local item = inv[slot]
     if not item or not item.metadata.level or item.metadata.level <= 1 then
         TriggerClientEvent('ox_lib:notify', src, {description = 'Chỉ tái chế vật phẩm cấp cao!', type = 'error'})
