@@ -2,20 +2,22 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Nam-codengu'
-description 'Advanced Item Upgrade System (Transfer, Recycle, Ranking, Effects) for ox_inventory & EX'
+description 'Advanced Backpack Upgrade System with NUI Tabs for ox_inventory & EX'
 version '1.0.0'
 
-shared_script 'shared/config.lua'
+shared_scripts {
+    'shared/config.lua',
+    'shared/config_backpacks.lua'
+}
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
     'server/main.lua'
 }
 client_script 'client/main.lua'
 
-ui_page 'nui/index.html'
+ui_page 'web/build/index.html'
 files {
-    'nui/index.html',
-    'nui/style.css',
-    'nui/script.js',
-    'nui/sfx/*.mp3'
+    'web/build/index.html',
+    'web/build/style.css',
+    'web/build/app.js'
 }

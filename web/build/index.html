@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống nâng cấp balo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" style="display: none;">
+        <div class="container">
+            <div class="header">
+                <h1>HỆ THỐNG NÂNG CẤP BALO</h1>
+                <div class="close-btn" onclick="closeMenu()">×</div>
+            </div>
+            
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="switchTab('upgrade')">Nâng Cấp</button>
+                <button class="tab-btn" onclick="switchTab('transfer')">Di Truyền</button>
+                <button class="tab-btn" onclick="switchTab('recycle')">Tái Chế</button>
+                <button class="tab-btn" onclick="switchTab('ranking')">Bảng Xếp Hạng</button>
+            </div>
+            
+            <!-- Upgrade Tab -->
+            <div id="upgrade-tab" class="tab-content active">
+                <h2>Nâng Cấp Balo</h2>
+                <p class="description">Chọn balo để nâng cấp. Cần có đá nâng cấp tương ứng.</p>
+                
+                <div class="inventory-grid" id="upgrade-inventory">
+                    <!-- Backpacks will be loaded here -->
+                </div>
+                
+                <div class="upgrade-info" id="upgrade-info" style="display: none;">
+                    <div class="selected-item">
+                        <div class="item-preview" id="upgrade-preview"></div>
+                        <div class="item-details">
+                            <h3 id="upgrade-item-name"></h3>
+                            <p>Cấp hiện tại: <span id="current-level"></span></p>
+                            <p>Cấp sau nâng cấp: <span id="next-level"></span></p>
+                            <p>Tỷ lệ thành công: <span id="success-rate"></span>%</p>
+                            <p>Đá cần thiết: <span id="required-stone"></span></p>
+                        </div>
+                    </div>
+                    <button class="action-btn upgrade-btn" onclick="upgradeItem()">Nâng Cấp</button>
+                </div>
+            </div>
+            
+            <!-- Transfer Tab -->
+            <div id="transfer-tab" class="tab-content">
+                <h2>Di Truyền Cấp</h2>
+                <p class="description">Chọn 2 balo cùng loại để di truyền cấp từ cao xuống thấp.</p>
+                
+                <div class="transfer-container">
+                    <div class="transfer-section">
+                        <h3>Balo Nguồn (Cấp Cao)</h3>
+                        <div class="inventory-grid" id="transfer-source">
+                            <!-- Source backpacks -->
+                        </div>
+                        <div class="selected-preview" id="source-preview"></div>
+                    </div>
+                    
+                    <div class="transfer-arrow">→</div>
+                    
+                    <div class="transfer-section">
+                        <h3>Balo Đích (Cấp Thấp)</h3>
+                        <div class="inventory-grid" id="transfer-target">
+                            <!-- Target backpacks -->
+                        </div>
+                        <div class="selected-preview" id="target-preview"></div>
+                    </div>
+                </div>
+                
+                <button class="action-btn transfer-btn" onclick="transferLevel()" disabled>Di Truyền Cấp</button>
+            </div>
+            
+            <!-- Recycle Tab -->
+            <div id="recycle-tab" class="tab-content">
+                <h2>Tái Chế Balo</h2>
+                <p class="description">Tái chế balo cấp cao để lấy lại một phần đá nâng cấp.</p>
+                
+                <div class="inventory-grid" id="recycle-inventory">
+                    <!-- High level backpacks -->
+                </div>
+                
+                <div class="recycle-info" id="recycle-info" style="display: none;">
+                    <div class="selected-item">
+                        <div class="item-preview" id="recycle-preview"></div>
+                        <div class="item-details">
+                            <h3 id="recycle-item-name"></h3>
+                            <p>Cấp balo: <span id="recycle-level"></span></p>
+                            <p>Đá nhận được: <span id="recycle-stones"></span></p>
+                        </div>
+                    </div>
+                    <button class="action-btn recycle-btn" onclick="recycleItem()">Tái Chế</button>
+                </div>
+            </div>
+            
+            <!-- Ranking Tab -->
+            <div id="ranking-tab" class="tab-content">
+                <h2>Bảng Xếp Hạng</h2>
+                
+                <div class="rankings-container">
+                    <div class="ranking-section">
+                        <h3>🏆 Top Cấp Cao Nhất</h3>
+                        <div class="ranking-list" id="top-rankings">
+                            <!-- Top rankings will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="ranking-section">
+                        <h3>😢 Thánh Xui</h3>
+                        <div class="ranking-item" id="unlucky-player">
+                            <!-- Most unlucky player -->
+                        </div>
+                    </div>
+                    
+                    <div class="ranking-section">
+                        <h3>🍀 Đại Gia May Mắn</h3>
+                        <div class="ranking-item" id="lucky-player">
+                            <!-- Most lucky player -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="action-btn refresh-btn" onclick="loadRankings()">Làm Mới</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading overlay -->
+    <div id="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Đang xử lý...</p>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
