@@ -13,7 +13,30 @@
 
 - Mở file `shared/config.lua` để chỉnh sửa loại vật phẩm, tỉ lệ đập đồ, loại đá, danh hiệu, v.v.
 
+### Cấu hình vật phẩm nâng cấp:
+Mỗi vật phẩm trong `Config.UpgradeItems` có thể cấu hình:
+- `label`: Tên hiển thị của vật phẩm
+- `icon`: (Tùy chọn) Tên file icon trong `/nui/icons/` (ví dụ: "backpack.png")  
+- `maxLevel`: Cấp tối đa
+- `upgradeStones`: Loại đá nâng cấp cho mỗi cấp
+- `rates`: Tỉ lệ thành công cho mỗi cấp (%)
+- `requireTalismanAt`: Các cấp yêu cầu bùa may mắn
+
+### Cấu hình icon:
+- Đặt file icon (.png) vào thư mục `/nui/icons/`
+- Kích thước khuyến nghị: 32x32 pixel trở lên
+- Nếu không có icon, chỉ hiển thị tên vật phẩm
+
 ## 3. SỬ DỤNG TÍNH NĂNG
+
+### Mở menu nâng cấp
+- Sử dụng lệnh `/upgrade` hoặc phím `F7` để mở menu nâng cấp
+- Menu sẽ hiển thị danh sách tất cả vật phẩm có thể nâng cấp từ config
+
+### Danh sách vật phẩm nâng cấp
+- Hiển thị tất cả vật phẩm trong `Config.UpgradeItems`
+- Mỗi vật phẩm hiển thị: tên, icon (nếu có), và cấp tối đa
+- Danh sách có thể cuộn nếu có nhiều vật phẩm
 
 ### Đập đồ
 - Sử dụng NUI menu để chọn vật phẩm và nâng cấp (hoặc lệnh nếu có).

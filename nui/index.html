@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="mainMenu">
+    <div id="mainMenu" style="display:none">
         <h2>HỆ THỐNG NÂNG CẤP</h2>
+        
+        <!-- Items list section -->
+        <div id="itemsList">
+            <h3>Danh sách vật phẩm có thể nâng cấp</h3>
+            <div id="upgradeItems"></div>
+        </div>
+        
         <button onclick="openTransfer()">Di truyền cấp</button>
         <button onclick="openRecycle()">Tái chế</button>
         <button onclick="openRanking()">Bảng xếp hạng</button>
+        <button onclick="closeMenu()">Đóng</button>
     </div>
     <div id="rankingMenu" style="display:none">
         <h3>Bảng xếp hạng đập đồ</h3>
