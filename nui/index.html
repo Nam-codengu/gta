@@ -8,15 +8,36 @@
 <body>
     <div id="mainMenu">
         <h2>HỆ THỐNG NÂNG CẤP</h2>
+        <button onclick="openBackpackUpgrade()">Nâng cấp Balo</button>
         <button onclick="openTransfer()">Di truyền cấp</button>
         <button onclick="openRecycle()">Tái chế</button>
         <button onclick="openRanking()">Bảng xếp hạng</button>
+        <button onclick="closeMenu()">Đóng</button>
     </div>
+    
+    <div id="backpackMenu" style="display:none">
+        <h3>NÂNG CẤP BALO</h3>
+        <div id="backpackList"></div>
+        <button onclick="closeBackpackMenu()">Quay lại</button>
+    </div>
+    
+    <div id="upgradeMenu" style="display:none">
+        <h3>CHỌN BALO MỚI</h3>
+        <div id="currentBackpack"></div>
+        <div id="upgradeOptions"></div>
+        <div class="upgrade-actions">
+            <button id="normalUpgrade" onclick="performUpgrade()">Nâng cấp bình thường</button>
+            <button id="smashUpgrade" onclick="performSmash()">Đập balo (Rủi ro cao)</button>
+        </div>
+        <button onclick="closeUpgradeMenu()">Quay lại</button>
+    </div>
+    
     <div id="rankingMenu" style="display:none">
         <h3>Bảng xếp hạng đập đồ</h3>
         <div id="rankings"></div>
         <button onclick="closeRanking()">Đóng</button>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
